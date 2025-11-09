@@ -1,18 +1,32 @@
 var createError = require('http-errors');
 var express = require('express');
+const { engine } = require('express-handlebars');
+var app = express();
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+app.engine(
+    'hbs',
+    engine({
+        extname: 'hbs',
+        defaultLayout: 'layouts',
+        partialsDir: path.join(__dirname,'views', 'partials'),
+        layoutsDir: path.join(__dirname,'views', 'layouts'),
+    })
+);
+
 var indexRouter = require('./routes/index');
+var adminRouter = require('./routes/admin');
 var usersRouter = require('./routes/users');
 var aboutRouter = require('./routes/about');
 var testimonialRouter = require('./routes/testimonial');
 var productsRouter = require('./routes/products');
 var blog_listRouter = require('./routes/blog_list');
 var contactRouter = require('./routes/contact');
-
-var app = express();
+// const {engine} = require("express/lib/application");
+//
+// var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,6 +39,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/admin', adminRouter);
 app.use('/about', aboutRouter);
 app.use('/testimonial', testimonialRouter);
 app.use('/products', productsRouter);

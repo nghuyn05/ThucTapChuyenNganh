@@ -1,24 +1,32 @@
 var express = require('express');
 var router = express.Router();
+router.all('/*',
+    function(
+        req,
+        res,
+        next) {
+        res.app.locals.layout = 'home';
+        next();
+})
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('home/index', { title: 'Home' });
 });
 router.get('/products', function(req, res, next) {
-    res.render('products');
+    res.render('home/products', { title: 'Products' });
 });
 router.get('/blog_list', function(req, res, next) {
-    res.render('blog_list');
+    res.render('home/blog_list', { title: 'Blog List' });
 });
 router.get('/contact', function(req, res, next) {
-    res.render('contact');
+    res.render('home/contact', { title: 'Contact' });
 });
 router.get('/about', function(req, res, next) {
-    res.render('about');
+    res.render('home/about', { title: 'About' });
 });
 router.get('/testimonial', function(req, res, next) {
-    res.render('testimonial');
+    res.render('home/testimonial', { title: 'Testimonial' });
 });
 
 module.exports = router;
