@@ -29,5 +29,8 @@ router.get('/order_management', function(req, res, next) {
 router.get('/products_management', function(req, res, next) {
     res.render('admin/products_management/products_list', { title: 'Products management' });
 });
+router.get('/test', function(req, res, next) {
+    res.render('admin/test/test_list', { title: 'Products management' });
+});
 
 module.exports = router;
