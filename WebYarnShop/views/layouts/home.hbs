@@ -52,8 +52,13 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/contact">Contact</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/sign_up">Sign up</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Account <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/login">Login</a></li>
+                                <li><a data-toggle="modal" data-target="#exampleModal" href="/">Logout</a></li>
+                                <li><a href="/register">Register</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">
@@ -123,6 +128,24 @@
     </header>
     <!-- end header section -->
     {{{body}}}
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger" href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- footer start -->
     <footer>
         <div class="container">
@@ -210,5 +233,7 @@
     <script src="js/bootstrap.js"></script>
     <!-- custom js -->
     <script src="js/custom.js"></script>
+<!--    &lt;!&ndash;custom login&ndash;&gt;-->
+<!--    <script src="/js/showpassword.js"></script>-->
 </body>
 </html>

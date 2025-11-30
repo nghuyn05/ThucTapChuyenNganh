@@ -28,8 +28,11 @@ router.get('/about', function(req, res, next) {
 router.get('/testimonial', function(req, res, next) {
     res.render('home/testimonial', { title: 'Testimonial' });
 });
-router.get('/sign_up', function(req, res, next) {
-    res.render('home/sign_up', { title: 'Sign up' });
+router.get('/login', function(req, res, next) {
+    res.render('home/login', { title: 'Login' });
+});
+router.get('/register', function(req, res, next) {
+    res.render('home/register', { title: 'Register' });
 });
 
 module.exports = router;

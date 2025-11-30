@@ -32,5 +32,7 @@ router.get('/products_management', function(req, res, next) {
 router.get('/test', function(req, res, next) {
     res.render('admin/test/test_list', { title: 'Products management' });
 });
-
+router.get('/login', function(req, res, next) {
+    res.render('admin/login', { title: 'Login' });
+});
 module.exports = router;

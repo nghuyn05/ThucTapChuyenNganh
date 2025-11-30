@@ -29,9 +29,9 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-                <a class="nav-link" href="/">
+                <a class="nav-link" href="/admin">
                     <i class="fa fa-fw fa-dashboard"></i>
-                    <span class="nav-link-text">Home</span>
+                    <span class="nav-link-text">Dashboard</span>
                 </a>
             </li>
 
@@ -176,6 +176,13 @@
                     </div>
                 </form>
             </li>
+            <!--Login-->
+            <li class="nav-item">
+                <a class="nav-link" href="/login">
+                    <i class="fa fa-fw fa-user" ></i> Login
+                </a>
+            </li>
+            <!--Logout-->
             <li class="nav-item">
                 <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
                     <i class="fa fa-fw fa-sign-out"></i>Logout</a>
@@ -190,7 +197,7 @@
     <footer class="sticky-footer">
         <div class="container">
             <div class="text-center">
-                <small>Copyright © Your Website 2017</small>
+                <small>YarnShop © Your Website 2025</small>
             </div>
         </div>
     </footer>
@@ -198,6 +205,41 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fa fa-angle-up"></i>
     </a>
+    <!-- Login Modal -->
+<!--    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">-->
+<!--        <div class="modal-dialog" role="document">-->
+<!--            <div class="modal-content">-->
+
+<!--                <div class="modal-header">-->
+<!--                    <h5 class="modal-title" id="loginModalLabel">Login</h5>-->
+<!--                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                        <span aria-hidden="true">&times;</span>-->
+<!--                    </button>-->
+<!--                </div>-->
+
+<!--                <form action="/login" method="POST" id="loginForm">-->
+<!--                    <div class="modal-body">-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="loginEmail">Email address</label>-->
+<!--                            <input type="email" class="form-control" id="loginEmail" name="email"-->
+<!--                                   placeholder="Enter your email" required >-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label for="loginPassword">Password</label>-->
+<!--                            <input type="password" class="form-control" id="loginPassword" name="password"-->
+<!--                                   placeholder="Enter your password" required>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="modal-footer">-->
+<!--                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>-->
+<!--                        <button type="submit" class="btn btn-primary" href="/admin">Login</button>-->
+<!--                    </div>-->
+<!--                </form>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
     <!-- Logout Modal-->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -211,7 +253,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="/">Logout</a>
                 </div>
             </div>
         </div>
@@ -230,6 +272,8 @@
     <!-- Custom scripts for this page-->
     <script src="/js/sb-admin-datatables.min.js"></script>
     <script src="/js/sb-admin-charts.min.js"></script>
+    <!--Custom script for login-->
+    <script src="/js/showpassword.js"></script>
 </div>
 </body>
 
