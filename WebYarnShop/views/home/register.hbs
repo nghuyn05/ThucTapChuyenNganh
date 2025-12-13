@@ -15,46 +15,61 @@
 <section class="why_section layout_padding">
     <div class="container">
 
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <div class="full">
-                    <form action="/register" method="post">
-                    <fieldset>
-                            <input type="email" placeholder="Enter your email address (enter only lowercase letters and numbers) " name="email" required />
-                            <input type="password" placeholder="Enter password" name="password" required />
-<!--                            <textarea placeholder="Enter your message" required></textarea>-->
-                            <input type="submit" value="Submit" />
-                        </fieldset>
-                    </form>
+        <div class="card card-register mx-auto mt-5">
+
+            <div class="card-header">Register an Account</div>
+
+            {{#if error_message}}
+                <div class="alert alert-danger">
+                    {{error_message}}
+                </div>
+            {{/if}}
+            {{#if errors}}
+                {{#each errors}}
+                    <div class="alert alert-danger">
+                        {{message}}
+                    </div>
+                {{/each}}
+            {{/if}}
+
+            <div class="card-body">
+                <form action="/register" method="post">
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="exampleInputName">First name</label>
+                                <input value="{{firstName}}" name="firstName" class="form-control" id="exampleInputName" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="exampleInputLastName">Last name</label>
+                                <input value="{{lastName}}" name="lastName" class="form-control" id="exampleInputLastName" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input value="{{email}}" name="email" class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input name="password" class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="exampleConfirmPassword">Confirm password</label>
+                                <input name="password1" class="form-control" id="exampleConfirmPassword" type="password" placeholder="Confirm password">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" value="Submit" />
+<!--                    <button type="submit" class="btn btn-primary btn-block">Register</button>-->
+                </form>
+                <div class="text-center">
+                    <a class="d-block small mt-3" href="/login">Login Page</a>
+                    <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- end why section -->
-<!-- arrival section -->
-<!--<section class="arrival_section">-->
-<!--    <div class="container">-->
-<!--        <div class="box">-->
-<!--            <div class="arrival_bg_box">-->
-<!--                <img src="images/arrival-bg.jpg" alt="">-->
-<!--            </div>-->
-<!--            <div class="row">-->
-<!--                <div class="col-md-6 ml-auto">-->
-<!--                    <div class="heading_container remove_line_bt">-->
-<!--                        <h2>-->
-<!--                            #NewArrivals-->
-<!--                        </h2>-->
-<!--                    </div>-->
-<!--                    <p style="margin-top: 20px;margin-bottom: 30px;">-->
-<!--                        Vitae fugiat laboriosam officia perferendis provident aliquid voluptatibus dolorem, fugit ullam sit earum id eaque nisi hic? Tenetur commodi, nisi rem vel, ea eaque ab ipsa, autem similique ex unde!-->
-<!--                    </p>-->
-<!--                    <a href="">-->
-<!--                        Shop Now-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-<!-- end arrival section -->

@@ -1,11 +1,15 @@
-var createError = require('http-errors');
+// var createError = require('http-errors');
 var express = require('express');
 const { engine } =require ('express-handlebars');
+const session = require('express-session');
+const flash = require('connect-flash');
+const passport = require('passport');
 var app = express();
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+//app.engine
 app.engine(
     'hbs',
     engine({
@@ -15,22 +19,81 @@ app.engine(
         layoutsDir: path.join(__dirname, 'views', 'layouts'),
     })
 );
+
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true,
+}));
+app.use(flash());
+//PASSPORT
+app.use(passport.initialize());
+app.use(passport.session());
+
+// You might also need custom middleware to make flash messages available in templates
+app.use((req, res, next) => {
+    res.locals.user = req.user ? req.user.toObject() : null;
+    res.locals.success_message = req.flash('success_message');
+    res.locals.error_message = req.flash('error_message');
+    res.locals.error = req.flash('error'); // Passport.js often uses 'error'
+    res.locals.errors = req.flash('errors');
+    next();
+});
+//load router
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var adminRouter = require('./routes/admin');
+
+console.log(path.join(__dirname, 'views', 'layouts'));
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/', indexRouter);
+app.use('/admin', adminRouter);
+app.use('/users', usersRouter);
+//database mongoDB
+const {Strategy: LocalStrategy} = require("passport-local");
 const mongoose = require('mongoose');
+mongoose.Promise = global.Promise;
 const bodyParser = require('body-parser');
 const User = require('./models/User');
 const bcrypt = require('bcrypt');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+//mongoDB
 mongoose.connect('mongodb://localhost:27017/node')
     .then(() => {
         console.log("MongoDB Connected successfully.");
     })
     .catch((err) => {
         console.error("Error connecting to MongoDB", err);
-    })
+    });
+//end mongoDB
+
+
+
+
+
+
+
+
 //Login
 // app.post('/login', (req, res) => {
-//     User.findOne({email: req.body.email}).then((user) => {
+// const {Strategy: LocalStrategy} = require("passport-local");
+// const mongoose = require('mongoose');
+// mongoose.Promise = global.Promise;
+// const bodyParser = require('body-parser');
+// const User = require('./models/User');
+// const bcrypt = require('bcrypt');
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));    User.findOne({email: req.body.email}).then((user) => {
 //         if (user) {
 //             bcrypt.compare(req.body.password,user.password,(err,matched)=>{
 //                 if(err) return err;
@@ -44,6 +107,7 @@ mongoose.connect('mongodb://localhost:27017/node')
 //     })
 // });
 
+// Login cua minh
 app.post('/login', (req, res) => {
     // const { email, password } = req.body;
 
@@ -65,11 +129,11 @@ app.post('/login', (req, res) => {
                     if (user.email === "stu@gmail") {
                         return res.redirect('/admin');    // admin
                     }
+                    //Đăng nhập thành công thì chuyển đến trang admin
                     return res.redirect('/');
 
                 } else {
-                    // return res.send("Incorrect password");
-                    return res.redirect('/admin');
+                    return res.send("Incorrect password");
                 }
             });
         })
@@ -81,67 +145,73 @@ app.post('/login', (req, res) => {
 
 
 
-//Register
-app.post('/register',
-    (
-        req,
-        res) => {
-        const newUser = new User();
-        newUser.email = req.body.email;
-        newUser.password = req.body.password;
-        bcrypt.genSalt(10,
-            function (err, salt) {
-                bcrypt.hash(newUser.password, salt,
-                    function (err, hash) {
-                        if (err) {return  err}
-                        newUser.password = hash;
+//Register cua minh da chay dc
+// app.post('/register',
+//     (
+//         req,
+//         res) => {
+//         const newUser = new User();
+//         newUser.email = req.body.email;
+//         newUser.password = req.body.password;
+//         bcrypt.genSalt(10,
+//             function (err, salt) {
+//                 bcrypt.hash(newUser.password, salt,
+//                     function (err, hash) {
+//                         if (err) {return  err}
+//                         newUser.password = hash;
+//
+//                         newUser.save().then(userSave=>
+//                         {
+//                              return res.redirect('/');
+//                          }).catch(err => {
+//                             res.send('USER ERROR'+err);
+//                         });
+//                     });
+//             });
+//     }
+// );
 
-                        newUser.save().then(userSave=>
-                        {
-                            return res.redirect('/');
-                        }).catch(err => {
-                            res.send('USER ERROR'+err);
-                        });
-                    });
-            });
-    }
-);
+// Register cua thay
+// app.post('/register',  (req,res) => {
+//         const newUser = new User();
+//         newUser.email = req.body.email;
+//         newUser.password = req.body.password;
+//         bcrypt.genSalt(10, function (err, salt) {
+//             bcrypt.hash(newUser.password, salt, function (err, hash) {
+//                 if (err) {return  err}
+//                 newUser.password = hash;
+//
+//                 newUser.save().then(userSave=>
+//                 {
+//                     res.send('USER SAVED');
+//                 }).catch(err => {
+//                     res.send('USER ERROR'+err);
+//                 });
+//             });
+//         });
+//     }
+// );
 // Logout
-app.get('/logout', (req, res) => {
-    if (req.session) {
-        req.session.destroy(err => {
-            if (err) {
-                console.log(err);
-                return res.send('Có lỗi xảy ra khi logout');
-            }
-            res.redirect('/'); // Logout xong quay về index
-        });
-    } else {
-        // Nếu không dùng session thì chỉ redirect
-        res.redirect('/');
-    }
-});
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var adminRouter = require('./routes/admin');
-const {Router} = require("express");
+// app.get('/logout', (req, res) => {
+//     if (req.session) {
+//         req.session.destroy(err => {
+//             if (err) {
+//                 console.log(err);
+//                 return res.send('Có lỗi xảy ra khi logout');
+//             }
+//             res.redirect('/'); // Logout xong quay về index
+//         });
+//     } else {
+//         // Nếu không dùng session thì chỉ redirect
+//         res.redirect('/');
+//     }
+// });
+//
+// const {Router} = require("express");
 
 
 
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', indexRouter);
-app.use('/admin', adminRouter);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
