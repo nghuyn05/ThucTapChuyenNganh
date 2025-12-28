@@ -16,10 +16,7 @@ router.all('/*',
         next();
     })
 
-/* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('home/index', { title: 'Home' });
-// });
+
 router.get('/', function (req, res, next) {
 
     Category.find({ status: true }).then(function (dbCategories) {
@@ -62,9 +59,6 @@ router.get('/products', function(req, res, next) {
         res.render('home/products', {title: 'Products',products: products});
     });
 });
-// router.get('/category', function(req, res, next) {
-//     res.render('home/category', { title: 'Category' });
-// });
 
 router.get('/contact', function(req, res, next) {
     res.render('home/contact', { title: 'Contact' });
@@ -224,12 +218,7 @@ router.post('/register', (req, res, next) => {
         });
     }
 });
-// router.get('/detail_category', function(req, res, next) {
-//     res.render('home/detail_category', { title: 'Detail Category' });
-// });
-// router.get('/detail_product', function(req, res, next) {
-//     res.render('home/detail_product', { title: 'Detail Product' });
-// });
+
 router.get('/cart', function(req, res, next) {
     res.render('home/cart', { title: 'Cart' });
 });

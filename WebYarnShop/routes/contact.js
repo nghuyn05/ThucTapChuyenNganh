@@ -29,11 +29,6 @@ router.put('/edit/:id', function(req, res, next) {
         .catch(next);
 });
 
-// router.delete('/:id', function(req, res, next) {
-//     Contact.deleteOne({_id: req.params.id})
-//         .then(() => res.redirect('/admin/contact'))
-//         .catch(next);
-// });
 router.delete('/:id', function (req, res, next) {
     Contact.deleteOne({
         _id: req.params.id,

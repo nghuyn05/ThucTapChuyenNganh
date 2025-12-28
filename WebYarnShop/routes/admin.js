@@ -36,16 +36,6 @@ router.get('/products_management/search-name',function(req, res) {
         });
 });
 
-// router.get('/customer_management', function(req, res, next) {
-//     res.render('admin/customer_management/customer_list', { title: 'Customer management' });
-// });
-// router.get('/order_management', function(req, res, next) {
-//     res.render('admin/order_management/order_list', { title: 'Order management' });
-// });
-// router.get('/test', function(req, res, next) {
-//     res.render('admin/test/test_list', { title: 'Products management' });
-// });
-
 // Thống kê
 router.get('/', function(req, res, next) {
 
