@@ -1,0 +1,35 @@
+<div class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/admin">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">About Pages</li>
+    </ol>
+
+    <div class="card-header">
+        <h2>Edit About Pages</h2>
+    </div>
+
+    <div class="card-body border-0">
+        <form method="post" action="/admin/about/edit/{{about._id}}?_method=PUT">
+
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <input name="description" value="{{about.description}}" type="text" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Phone</label>
+                <input name="phone" value="{{about.phone}}" type="text" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Address</label>
+                <input name="address" value="{{about.address}}" type="text" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update</button>
+
+        </form>
+    </div>
+</div>

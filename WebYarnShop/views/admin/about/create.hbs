@@ -1,0 +1,37 @@
+<div class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/admin">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Products Pages</li>
+    </ol>
+
+    <div class="card-header">
+        <h2>Products Pages</h2>
+    </div>
+
+    <div class="card-body border-0">
+        <form method="POST" action="/admin/about/create">
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input name="description" type="text" class="form-control" id="description" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input name="phone" type="number" class="form-control" id="phone" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <input name="address" type="text" class="form-control" id="address" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+                Add about new
+            </button>
+
+        </form>
+    </div>
+</div>

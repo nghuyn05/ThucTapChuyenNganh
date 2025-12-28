@@ -50,6 +50,7 @@ var adminRouter = require('./routes/admin');
 var categoryRouter = require('./routes/category');
 var productRouter = require('./routes/product');
 var contactRouter = require('./routes/contact');
+var aboutRouter = require('./routes/about');
 
 console.log(path.join(__dirname, 'views', 'layouts'));
 // view engine setup
@@ -70,6 +71,7 @@ app.use('/products', productRouter);
 app.use('/admin/category', categoryRouter);
 app.use('/admin/products_management', productRouter);
 app.use('/admin/contact', contactRouter);
+app.use('/admin/about', aboutRouter);
 
 //database mongoDB
 const {Strategy: LocalStrategy} = require("passport-local");

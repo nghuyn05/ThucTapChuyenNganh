@@ -4,6 +4,7 @@ const User = require('../models/User');
 const Category = require('../models/Category');
 const Product = require('../models/Product');
 const Contact = require('../models/Contact');
+const About = require('../models/About');
 const bcrypt = require('bcrypt');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -16,7 +17,10 @@ router.all('/*',
         next();
     })
 
-
+/* GET home page. */
+// router.get('/', function(req, res, next) {
+//   res.render('home/index', { title: 'Home' });
+// });
 router.get('/', function (req, res, next) {
 
     Category.find({ status: true }).then(function (dbCategories) {
@@ -59,6 +63,9 @@ router.get('/products', function(req, res, next) {
         res.render('home/products', {title: 'Products',products: products});
     });
 });
+// router.get('/category', function(req, res, next) {
+//     res.render('home/category', { title: 'Category' });
+// });
 
 router.get('/contact', function(req, res, next) {
     res.render('home/contact', { title: 'Contact' });
@@ -105,7 +112,24 @@ router.post('/contact/submit', function (req, res) {
         });
 });
 router.get('/about', function(req, res, next) {
-    res.render('home/about', { title: 'About' });
+    About.find({})
+        .then(function(dbAbouts) {
+            const abouts = dbAbouts.map(function(a) {
+                return a.toObject();
+            });
+
+            res.render('home/about', {
+                title: 'About',
+                abouts: abouts
+            });
+        })
+        .catch(function(err) {
+            console.log(err);
+            res.render('home/about', {
+                title: 'About',
+                abouts: []
+            });
+        });
 });
 router.get('/login', function(req, res, next) {
     res.render('home/login', { title: 'Login' });
@@ -218,7 +242,12 @@ router.post('/register', (req, res, next) => {
         });
     }
 });
-
+// router.get('/detail_category', function(req, res, next) {
+//     res.render('home/detail_category', { title: 'Detail Category' });
+// });
+// router.get('/detail_product', function(req, res, next) {
+//     res.render('home/detail_product', { title: 'Detail Product' });
+// });
 router.get('/cart', function(req, res, next) {
     res.render('home/cart', { title: 'Cart' });
 });

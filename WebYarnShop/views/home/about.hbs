@@ -1,6 +1,6 @@
 <!-- inner page section -->
 <section class="inner_page_head">
-    <div class="container_fuild">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="full">
@@ -11,77 +11,38 @@
     </div>
 </section>
 <!-- end inner page section -->
+
 <!-- about yanshop section -->
 <section class="about_section layout_padding">
     <div class="container">
-        <div class="row">
-            <div class="col-md-10 mx-auto">
-
-                <h4 class="text-center">Welcome to YanShop!</h4>
-
-                <p style="margin-top:15px; color:#555;">
-                    <i class="fa-solid fa-star text-warning fs-3"></i>
-                    YanShop is a modern online shopping platform providing a wide variety of quality products at
-                    competitive prices. We focus on customer satisfaction by offering fast delivery, secure payments,
-                    and reliable customer support, ensuring a smooth and enjoyable shopping experience for everyone.
-                </p>
-
-                <p style="margin-top:20px; color:#555;">
-                    <i class="fa-solid fa-star text-warning fs-3"></i>
-                    Our mission is to make online shopping simple and accessible. YanShop carefully selects products
-                    from trusted suppliers, ensuring quality, durability, and value while keeping up with the latest
-                    trends and customer needs.
-                </p>
-
-                <p style="margin-top:20px; color:#555;">
-                    <i class="fa-solid fa-star text-warning fs-3"></i>
-                    With a customer-first mindset, YanShop continuously improves its services by listening to user
-                    feedback, optimizing delivery processes, and enhancing the overall shopping experience to build
-                    long-term trust and satisfaction.
-                </p>
-
+        {{#each abouts}}
+            <div class="row">
+                <div class="col-md-10 mx-auto text-center">
+                    <h4>Welcome to YanShop!</h4>
+                    <p style="margin-top:15px; color:#555;" class="text-justify">
+                        <i class="fa-solid fa-star text-warning fs-3"></i>
+                        {{description}}
+                    </p>
+                </div>
             </div>
-        </div>
+
+            <div class="row text-center text-md-start gy-3 mt-4">
+                <div class="col-md-4">
+                    <h5><i class="fa-solid fa-phone me-2"></i> Contact Information</h5>
+                    <p>{{phone}}</p>
+                </div>
+
+                <div class="col-md-4">
+                    <h5><i class="fa-solid fa-location-dot me-2"></i> Address</h5>
+                    <p>{{address}}</p>
+                    <p>Time: 8:00 AM – 9:00 PM</p>
+                </div>
+            </div>
+        {{/each}}
     </div>
 </section>
-<!-- end about yanshop section -->
-<div class="container py-4">
+<!-- end about section -->
 
-    <div class="row text-center text-md-start gy-3">
-
-        <div class="col-md-4">
-            <h5>
-                <i class="fa-solid fa-phone me-2"></i>
-                Contact Infomation
-            </h5>
-            <p class="mb-1"><a href="tel:0348306091" class="text-decoration-none">0348 306 091</a></p>
-            <p><a href="tel:0123456789" class="text-decoration-none">0123 456 789</a></p>
-        </div>
-
-        <div class="col-md-4">
-            <h5>
-                <i class="fa-solid fa-location-dot me-2"></i>
-                Address
-            </h5>
-            <p class="mb-1">180 Cao Lỗ, phường 4, quận 8, TP.HCM</p>
-            <p>Time: 8:00 AM – 9:00 PM</p>
-        </div>
-
-        <div class="col-md-4 text-center">
-            <h5><i class="fa-solid fa-share-nodes me-2"></i> Social media account</h5>
-
-            <div class="d-flex justify-content-center gap-4 mt-2 social-icons">
-                <a href="https://www.facebook.com/share/18dBWbxMbk/" class="text-dark"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.tiktok.com/@stoyee_yarn_shop?_r=1&_t=ZS-92XrXjRWhIz" class="text-dark"><i class="fa-brands fa-tiktok"></i></a>
-<!--                <a href="" class="text-dark"><i class="fa-brands fa-youtube"></i></a>-->
-<!--                <a href="" class="text-dark"><i class="fa-brands fa-instagram"></i></a>-->
-            </div>
-        </div>
-
-
-    </div>
-
-</div>
 <!-- why section -->
 <section class="why_section layout_padding">
     <div class="container">

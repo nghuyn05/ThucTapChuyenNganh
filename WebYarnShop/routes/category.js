@@ -9,6 +9,14 @@ function useAuthenticated(req, res, next) {
         res.redirect('/login'); // Redirect to login if authentication fails
     }
 }
+// Set layout admin cho tất cả routes
+// router.all('/*', useAuthenticated,function(
+//     req,
+//     res,
+//     next) {
+//     res.app.locals.layout = 'admin';
+//     next();
+// })
 
 /* GET admin home page. */
 router.get('/', function(req, res, next) {
@@ -49,6 +57,11 @@ router.put('/edit/:id', function(req, res, next) {
     });
 });
 
+// router.delete('/:id', function(req, res, next) {
+//     Category.deleteOne({_id: req.params.id}).then(category => {
+//         res.redirect('/admin/category');
+//     })
+// })
 router.delete('/:id', function (req, res) {
 
     const categoryId = req.params.id;
