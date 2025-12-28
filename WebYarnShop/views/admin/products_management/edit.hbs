@@ -1,0 +1,66 @@
+<div class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/admin">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Products Pages</li>
+    </ol>
+
+    <div class="card-header">
+        <h2>Edit Products Pages</h2>
+    </div>
+
+    <div class="card-body border-0">
+        <form method="post" action="/admin/products_management/edit/{{product._id}}?_method=PUT">
+
+            <!-- CATEGORY -->
+            <div class="mb-3">
+                <label class="form-label">Category</label>
+                <select name="category_id" class="form-control" required>
+                    {{#each categories}}
+                        <option value="{{_id}}" {{#if selected}}selected{{/if}}>
+                            {{name}}
+                        </option>
+                    {{/each}}
+                </select>
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input name="name" value="{{product.name}}" type="text" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Price</label>
+                <input name="price" value="{{product.price}}" type="number" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Quantity</label>
+                <input name="quantity" value="{{product.quantity}}" type="number" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Image</label>
+                <input name="image" value="{{product.image}}" type="text" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Description</label>
+                <input name="description" value="{{product.description}}" type="text" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Status</label>
+                <select name="status" class="form-control">
+                    <option value="false" {{#unless product.status}}selected{{/unless}}>inactive</option>
+                    <option value="true" {{#if product.status}}selected{{/if}}>active</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update</button>
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="card shadow mb-4">
+    <div class="card-header py-3 bg-dark text-white d-flex justify-content-between align-items-center">
+        <h5 class="m-0 font-weight-bold">Contact</h5>
+    </div>
+
+    <div class="card-body bg-light">
+        {{#if error_message}}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{error_message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        {{/if}}
+
+        {{#if success_message}}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{success_message}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        {{/if}}
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover text-center align-middle">
+                <thead class="table-primary text-dark">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">FullName</th>
+                    <th scope="col">Email Address</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Message</th>
+                    <th scope="col">Created at</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{#each contacts}}
+                    <tr>
+                        <th scope="row">{{_id}}</th>
+                        <td>{{fullName}}</td>
+                        <td>{{email}}</td>
+                        <td>{{subject}}</td>
+                        <td style="max-width: 300px">{{message}}</td>
+                        <td>{{createdAt}}</td>
+                        <td>
+                            {{#if status}}
+                                <i class="fa-solid fa-circle-check text-success"></i>
+                            {{else}}
+                                <i class="fa-solid fa-circle-check text-secondary"></i>
+                            {{/if}}
+                        </td>
+                        <td>
+                            <a href="/admin/contact/edit/{{_id}}">
+                                <i class="fa-solid fa-pen-to-square text-warning"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <form action="/admin/contact/{{_id}}?_method=DELETE" method="post">
+                                <button type="submit" class="border-0">
+                                    <i class="fa-solid fa-trash text-danger"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card-footer text-muted text-end small">
+    </div>
+</div>

@@ -392,19 +392,21 @@ a:focus {
 }
 
 .product_section .box .detail-box {
-  text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .product_section .box .detail-box h5 {
-  font-size: 18px;
-  margin-top: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
 
 .product_section .box .detail-box h6 {
   margin-top: 10px;
@@ -1061,7 +1063,7 @@ form input {
     width: 100%;
     font-size: 14px;
     margin-bottom: 20px;
-    text-transform: lowercase;
+    text-transform: capitalize;
     line-height: normal;
 }
 
@@ -1075,6 +1077,9 @@ form textarea {
     margin-bottom: 20px;
     text-transform: capitalize;
     line-height: normal;
+}
+form input[type="email"] {
+    text-transform: lowercase;
 }
 
 form input[type="submit"] {
@@ -1118,6 +1123,297 @@ form input[type="submit"]:focus {
     color: #f7444e;
     font-size: 15px;
     font-weight: 400;
+}
+/*category*/
+.product-card {
+    border: 1px solid #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.product-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.badge-outline {
+    border: 1px solid #28a745;
+    color: #28a745;
+    background: transparent;
+    font-weight: 500;
+}
+
+.btn-detail {
+    background-color: #6c757d;
+    color: #fff;
+    width: 100%;
+}
+
+.btn-detail:hover {
+    background-color: #5a6268;
+    color: #fff;
+}
+/* Ép ảnh đều nhau */
+.product-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Giới hạn mô tả */
+.product-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* số dòng */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    flex-grow: 1;
+}
+/*giỏ hàng*/
+/* ===== BANNER ===== */
+.cart-banner {
+    background: #ff4d58;
+    padding: 60px 0;
+    color: #fff;
+}
+
+.cart-banner h1 {
+    font-weight: 700;
+}
+
+/* ===== CART BOX ===== */
+.cart-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+.cart-item {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    padding: 10px;
+}
+
+.price {
+    color: #ff4d58;
+    margin-bottom: 0;
+}
+
+.quantity {
+    width: 70px;
+    margin-right: 15px;
+}
+
+.item-total {
+    width: 100px;
+    font-weight: 600;
+    text-align: right;
+}
+
+.btn-remove {
+    font-size: 24px;
+    color: #999;
+    border: none;
+}
+
+.btn-remove:hover {
+    color: #ff4d58;
+}
+
+/* ===== SUMMARY ===== */
+.summary-box {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 6px;
+}
+
+.summary-box h5 {
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.summary-box .total {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.btn-checkout {
+    background: #ff4d58;
+    color: #fff;
+    padding: 12px;
+}
+
+.btn-checkout:hover {
+    background: #e63b45;
+}
+.product-card {
+    overflow: hidden;
+    transition: 0.3s;
+
+    /* thêm để các card bằng chiều cao */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* cố định chiều cao ảnh và không méo */
+.product-img {
+    height: 220px;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* phần nội dung giãn đều */
+.product-body{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* mô tả tự cắt 3 dòng */
+.product-desc {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    flex: 1; /* giúp đẩy nút xuống đáy */
+}
+
+/* nút luôn nằm dưới cùng */
+.product-card .btn {
+    margin-top: auto;
+}
+/* Thẻ card cha */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* làm tất cả thẻ cao bằng nhau */
+}
+
+/* Phần chứa nội dung bạn gửi */
+.product-card .p-3 {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* giãn đều */
+}
+
+/* đoạn mô tả – tự động cân, không phá layout */
+.product-card p {
+    flex: 1; /* đẩy nút xuống đáy */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* nút luôn dính đáy */
+.product-card .btn {
+    margin-top: auto;
+}
+
+/* hình ngang bằng nhau */
+.product-card img {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+}
+/*căn giữa 2 nút trên button*/
+/* cho 2 badge xuống hàng */
+/* ép 2 badge xuống hàng riêng và căn giữa */
+.mb-3 > .badge {
+    display: block !important;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 6px;
+}
+
+/* badge 1: số lượng (nhỏ hơn) */
+.mb-3 > .badge:nth-child(1) {
+    font-size: 12px;
+    padding: 6px 10px;
+    width: fit-content;
+}
+
+/* badge 2: giá (to hơn nhưng nhỏ hơn button full width) */
+.mb-3 > .badge:nth-child(2) {
+    font-size: 16px;
+    padding: 6px 12px;
+    width: 70%;
+}
+
+/*about*/
+.about_section {
+    padding-bottom: 5px;
+}
+.intro-title {
+    font-style: italic;
+    color: #6c757d;
+    margin-bottom: 30px;
+}
+
+.content-text {
+    color: #666;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.content-text strong {
+    color: #444;
+}
+
+.image-box img {
+    width: 100%;
+    border-radius: 4px;
+    object-fit: cover;
+}
+/*end about*/
+.social-icons a {
+    font-size: 22px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.25s;
+    border: 1px solid #ddd;
+}
+
+.social-icons a:hover {
+    transform: translateY(-2px);
+    border-color: #000;
 }
 
 http://kute-themes.com/html/boutique/html/index.html

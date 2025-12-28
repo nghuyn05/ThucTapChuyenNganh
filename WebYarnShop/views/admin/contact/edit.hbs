@@ -1,0 +1,30 @@
+<div class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/admin">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Contact Pages</li>
+    </ol>
+    <div class="card-header">
+        <h2>Edit Contact Pages</h2>
+    </div>
+    <div class="card-body border-0">
+        <form method="post" action="/admin/contact/edit/{{contact._id}}?_method=PUT">
+            <div class="mb-3">
+                <label for="status" class="form-label">Status</label>s
+                <select name="status" class="form-control" id="status">
+                    {{#if contact.status}}
+                        <option value="false" >inactive</option>
+                        <option value="true" selected>active</option>
+                    {{else}}
+                        <option value="false" selected>inactive</option>
+                        <option value="true" >active</option>
+                    {{/if}}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>
+
+

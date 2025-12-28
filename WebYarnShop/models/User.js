@@ -21,11 +21,6 @@ const UserSchema = new Schema({
         required: true,
         minlength: 5,
     },
-    // role: {
-    //     type: String,
-    //     default: 'user',   // user mặc định
-    //     enum: ['user', 'admin'] // chỉ cho phép 2 loại
-    // }
 });
 
 //const User = mongoose.model('User', userSchema);

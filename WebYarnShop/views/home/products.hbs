@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="full">
-                    <h3>Product Grid</h3>
+                    <h3>All Products</h3>
                 </div>
             </div>
         </div>
@@ -16,316 +16,47 @@
     <div class="container">
         <div class="heading_container heading_center">
             <h2>
-                Our <span>products</span>
+<!--                Our <span>products</span>-->
+                <i class="fa-solid fa-heart" style="color:red;"></i> Wishing you a wonderful day! <i class="fa-solid fa-heart" style="color:red;"></i>
+
             </h2>
         </div>
         <div class="row">
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="box">
-                    <div class="option_container">
-                        <div class="options">
-                            <a href="" class="option1">
-                                Men's Shirt
-                            </a>
-                            <a href="" class="option2">
-                                Buy Now
-                            </a>
+            {{#each products}}
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="box">
+                        <div class="option_container">
+                            <div class="options">
+                                <a href="/products/{{_id}}" class="option1">
+                                    Detail Product
+                                </a>
+                                <a href="/cart" class="option2">
+                                    Add to cart
+                                </a>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="{{image}}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                {{name}}
+                            </h5>
+                            <h6>
+                                {{price}} VNĐ
+                            </h6>
                         </div>
                     </div>
-                    <div class="img-box">
-                        <img src="images/milk coton 125g.jpg" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            Len milk cotton 125g
-                        </h5>
-                        <h6>
-                            45,000đ
-                        </h6>
-                    </div>
                 </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="box">
-                    <div class="option_container">
-                        <div class="options">
-                            <a href="" class="option1">
-                                Add To Cart
-                            </a>
-                            <a href="" class="option2">
-                                Buy Now
-                            </a>
-                        </div>
-                    </div>
-                    <div class="img-box">
-                        <img src="images/milk cotton 50g.jpg" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            Len milk cotton 50g
-                        </h5>
-                        <h6>
-                            11,000đ
-                        </h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="box">
-                    <div class="option_container">
-                        <div class="options">
-                            <a href="" class="option1">
-                                Add To Cart
-                            </a>
-                            <a href="" class="option2">
-                                Buy Now
-                            </a>
-                        </div>
-                    </div>
-                    <div class="img-box">
-                        <img src="/images/milk bò.jpg" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            Len milk bò 50g
-                        </h5>
-                        <h6>
-                            11,000đ
-                        </h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="box">
-                    <div class="option_container">
-                        <div class="options">
-                            <a href="" class="option1">
-                                Add To Cart
-                            </a>
-                            <a href="" class="option2">
-                                Buy Now
-                            </a>
-                        </div>
-                    </div>
-                    <div class="img-box">
-                        <img src="/images/nhung gấu 3mm.jpg" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            Len nhung gấu sợi 3mm
-                        </h5>
-                        <h6>
-                            18,000đ
-                        </h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="box">
-                    <div class="option_container">
-                        <div class="options">
-                            <a href="" class="option1">
-                                Add To Cart
-                            </a>
-                            <a href="" class="option2">
-                                Buy Now
-                            </a>
-                        </div>
-                    </div>
-                    <div class="img-box">
-                        <img src="/images/nhung mèo 4mm.jpg" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            Len nhung mèo sợi 4mm
-                        </h5>
-                        <h6>
-                            23,000đ
-                        </h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="box">
-                    <div class="option_container">
-                        <div class="options">
-                            <a href="" class="option1">
-                                Add To Cart
-                            </a>
-                            <a href="" class="option2">
-                                Buy Now
-                            </a>
-                        </div>
-                    </div>
-                    <div class="img-box">
-                        <img src="/images/nhung đũa.jpg" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            Len nhung đũa
-                        </h5>
-                        <h6>
-                            20,000đ
-                        </h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="box">
-                    <div class="option_container">
-                        <div class="options">
-                            <a href="" class="option1">
-                                Add To Cart
-                            </a>
-                            <a href="" class="option2">
-                                Buy Now
-                            </a>
-                        </div>
-                    </div>
-                    <div class="img-box">
-                        <img src="/images/Len Yaoh loang cuộn 50gr.jpg" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            Len Yaoh loang cuộn 50gr
-                        </h5>
-                        <h6>
-                            21,000đ
-                        </h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="box">
-                    <div class="option_container">
-                        <div class="options">
-                            <a href="" class="option1">
-                                Add To Cart
-                            </a>
-                            <a href="" class="option2">
-                                Buy Now
-                            </a>
-                        </div>
-                    </div>
-                    <div class="img-box">
-                        <img src="/images/Len PomPom dệt kim cầu vồng 50g.jpg" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            Len PomPom dệt kim cầu vồng 50g
-                        </h5>
-                        <h6>
-                            30,000đ
-                        </h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="box">
-                    <div class="option_container">
-                        <div class="options">
-                            <a href="" class="option1">
-                                Add To Cart
-                            </a>
-                            <a href="" class="option2">
-                                Buy Now
-                            </a>
-                        </div>
-                    </div>
-                    <div class="img-box">
-                        <img src="/images/Len lấp lánh Flowers Moonlight (Yarnart) 260g.jpg" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            Sợi YarnArt Flowers Moonlight 260g
-                        </h5>
-                        <h6>
-                            350,000đ
-                        </h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="box">
-                    <div class="option_container">
-                        <div class="options">
-                            <a href="" class="option1">
-                                Add To Cart
-                            </a>
-                            <a href="" class="option2">
-                                Buy Now
-                            </a>
-                        </div>
-                    </div>
-                    <div class="img-box">
-                        <img src="/images/susan's family 3 lace.jpg" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            susan's family 3 lace
-                        </h5>
-                        <h6>
-                            40,000đ
-                        </h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="box">
-                    <div class="option_container">
-                        <div class="options">
-                            <a href="" class="option1">
-                                Add To Cart
-                            </a>
-                            <a href="" class="option2">
-                                Buy Now
-                            </a>
-                        </div>
-                    </div>
-                    <div class="img-box">
-                        <img src="/images/Len Mohair loang cầu vồng cuộn 100g.jpg" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            Len Mohair loang cầu vồng cuộn 100g
-                        </h5>
-                        <h6>
-                            44,000đ
-                        </h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="box">
-                    <div class="option_container">
-                        <div class="options">
-                            <a href="" class="option1">
-                                Add To Cart
-                            </a>
-                            <a href="" class="option2">
-                                Buy Now
-                            </a>
-                        </div>
-                    </div>
-                    <div class="img-box">
-                        <img src="/images/Len Lông Thỏ 100g.jpg" alt="">
-                    </div>
-                    <div class="detail-box">
-                        <h5>
-                            Len Lông Thỏ 100g
-                        </h5>
-                        <h6>
-                            35,000đ
-                        </h6>
-                    </div>
-                </div>
-            </div>
+            {{/each}}
+
+
         </div>
-        <div class="btn-box">
-            <a href="">
-                View All products
-            </a>
-        </div>
+<!--        <div class="btn-box">-->
+<!--            <a href="">-->
+<!--                View All products-->
+<!--            </a>-->
+<!--        </div>-->
     </div>
 </section>
 <!-- end product section -->

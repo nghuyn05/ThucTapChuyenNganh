@@ -1,0 +1,51 @@
+
+<!-- inner page section -->
+<section class="inner_page_head">
+    <div class="container_fuild">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full">
+                    <h3>Category</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end inner page section -->
+<div class="container py-5">
+    <div class="row g-4">
+
+        {{#each categories}}
+            <div class="col-md-6 col-lg-4 d-flex">
+                <div class="product-card border rounded-3 h-100 w-100 d-flex flex-column">
+
+                    <img
+                            src="{{image}}"
+                            class="img-fluid rounded-top product-img"
+                            alt="{{name}}"
+                    />
+
+                    <div class="p-3 d-flex flex-column flex-grow-1">
+                        <h5 class="fw-semibold">{{name}}</h5>
+
+                        <p class="text-muted small product-desc">
+                            {{description}}
+                        </p>
+
+                        <div class="mb-3">
+              <span class="badge border border-success text-success">
+                  Còn 100 sản phẩm
+              </span>
+                        </div>
+
+                        <a href="/products/category/{{_id}}" class="btn btn-danger w-100 mt-auto">
+                            Detail Category
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        {{/each}}
+
+    </div>
+</div>

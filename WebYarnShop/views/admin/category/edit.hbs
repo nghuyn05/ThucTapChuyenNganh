@@ -1,0 +1,46 @@
+<div class="container">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/admin">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Category Pages</li>
+    </ol>
+    <div class="card-header">
+        <h2>Edit Category Pages</h2>
+    </div>
+    <div class="card-body border-0">
+        <form method="post" action="/admin/category/edit/{{category._id}}?_method=PUT">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input name="name" value="{{category.name}}" type="text" class="form-control" id="name">
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+                <input name="image" value="{{category.image}}" type="text" class="form-control" id="image" >
+            </div>
+<!--            <div class="mb-3">-->
+<!--                <label for="totalQuantity" class="form-label">Total Quantity</label>-->
+<!--                <input name="totalQuantity" value="{{category.totalQuantity}}" type="text" class="form-control" id="totalQuantity" >-->
+<!--            </div>-->
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input name="description" value="{{category.description}}" type="text" class="form-control" id="description">
+            </div>
+            <div class="mb-3">
+                <label for="status" class="form-label">Status</label>s
+                <select name="status" class="form-control" id="status">
+                    {{#if category.status}}
+                        <option value="false" >inactive</option>
+                        <option value="true" selected>active</option>
+                    {{else}}
+                        <option value="false" selected>inactive</option>
+                        <option value="true" >active</option>
+                    {{/if}}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+</div>
+
+
